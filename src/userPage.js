@@ -36,11 +36,11 @@ function getRecipe(keyword, maxResults=10){
 };
 let ingreditents ='';
 
-function handleSubmit(e){
-    e.preventDefault();
-    console.log(ingreditents)
-    //getRecipe(ingreditents)
-}
+// function handleSubmit(e){
+//     e.preventDefault();
+//     console.log(ingreditents)
+//     //getRecipe(ingreditents)
+// }
 export default function UserPage(props){
     const history = useHistory();
     function handleDeleteNote () {
@@ -57,7 +57,7 @@ export default function UserPage(props){
     console.log(userNotes)
     renderContent=<Display ingredients = {userNotes}
     onDeleteNote={handleDeleteNote}/>
-     handleSubmit= e=> {
+    const handleSubmit= e=> {
         e.preventDefault()
         const newNote = {
           content: e.target['newNote'].value,
@@ -99,7 +99,7 @@ export default function UserPage(props){
                 </form>
                 {Result}
             </div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <label htmlFor='newNote'>Add ingredient to the fridge:  </label>
             <textarea type='textarea' id='newNote' name='newNote' required></textarea>
             
