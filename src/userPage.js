@@ -57,7 +57,7 @@ export default function UserPage(props){
     console.log(userNotes)
     renderContent=<Display ingredients = {userNotes}
     onDeleteNote={handleDeleteNote}/>
-    function handleSubmit(e) {
+     handleSubmit= e=> {
         e.preventDefault()
         const newNote = {
           content: e.target['newNote'].value,
@@ -99,7 +99,7 @@ export default function UserPage(props){
                 </form>
                 {Result}
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
             <label htmlFor='newNote'>Add ingredient to the fridge:  </label>
             <textarea type='textarea' id='newNote' name='newNote' required></textarea>
             
