@@ -42,7 +42,7 @@ function App() {
       notes: notes.filter(note => note.id !== noteId)
     })
   }
-  function handleAddNote (ingredient){
+  const handleAddNote=ingredient=>{
     setNotes({
       notes: [
         notes,
