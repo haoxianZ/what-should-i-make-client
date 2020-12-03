@@ -1,0 +1,19 @@
+label{
+    font-size: larger;
+}
+textarea{
+    font-size: larger;
+}
+.addToFridge{
+    margin: auto;
+    padding-top: 10px;
+}
+.submitBtn{
+    font-size: large;
+    display: inline;
+}
+@media only screen and (min-width: 600px) {
+
+
+
+}
