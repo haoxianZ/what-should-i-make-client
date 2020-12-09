@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display searched result component renders search recipe results 1`] = `
+<div
+  className="recipes"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="filter"
+    >
+      Choose a filter:
+    </label>
+    <select
+      id="filter"
+      name="filter"
+    >
+      <option
+        value=""
+      >
+        None
+      </option>
+      <option
+        value="alcohol-free"
+      >
+        Alcohol free
+      </option>
+      <option
+        value="peanut-free"
+      >
+        Peanut free 
+      </option>
+      <option
+        value="sugar-conscious"
+      >
+        Sugar conscious 
+      </option>
+      <option
+        value="tree-nut-free"
+      >
+        Tree nut free 
+      </option>
+      <option
+        value="vegan"
+      >
+        Vegan
+      </option>
+      <option
+        value="vegetarian"
+      >
+        Vegetarian
+      </option>
+    </select>
+    <button
+      className="submitBtn"
+      type="submit"
+    >
+      Search
+    </button>
+  </form>
+  <LoadMore
+    click={0}
+  />
+  <button
+    onClick={[Function]}
+  >
+    Load More Results
+  </button>
+  <button
+    id="myBtn"
+    onClick={[Function]}
+    title="Go to top"
+  >
+    Top
+  </button>
+</div>
+`;

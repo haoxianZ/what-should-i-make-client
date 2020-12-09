@@ -31,6 +31,5 @@ describe(`display a recipe component`, () => {
         )
       ).not.toBeTruthy();
   })
-
   
 })

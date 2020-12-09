@@ -9,6 +9,5 @@ describe(`HomePage component`, () => {
     const wrapper = shallow(<HomePage />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
-
   
 })

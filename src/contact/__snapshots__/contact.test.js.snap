@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`contact form component renders the complete form 1`] = `
+<div>
+  <Link
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+    to="/"
+  >
+    <header>
+      What Should I Make?
+    </header>
+  </Link>
+  <form
+    className="contactForm"
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="subject"
+    >
+      Subject: 
+    </label>
+    <br />
+    <input
+      name="subject"
+    />
+    <br />
+    <label
+      htmlFor="message"
+    >
+      Message: 
+    </label>
+    <br />
+    <textarea
+      cols="70"
+      name="message"
+      required={true}
+      rows="10"
+    />
+    <br />
+    <label
+      htmlFor="from_name"
+    >
+      Your Email: 
+    </label>
+    <br />
+    <input
+      name="from_name"
+      type="email"
+    />
+    <input
+      type="submit"
+      value="Send"
+    />
+  </form>
+</div>
+`;

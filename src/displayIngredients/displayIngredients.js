@@ -10,7 +10,6 @@ export default function Display(props){
   const history = useHistory();
 
   const Context = useContext(context);
-  console.log(Context)
   function  handleChange (e) {
       const searchWord =e.target.checked ? e.target.value: null;
       const id = e.target.id

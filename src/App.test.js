@@ -11,5 +11,5 @@ it('renders without crashing', () => {
     </BrowserRouter>,
     div
   )
-  ReactDOM.unmountComponentAtNode(div)
+  ReactDOM.unmountComponentAtNode(div);
 })

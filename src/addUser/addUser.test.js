@@ -5,7 +5,7 @@ import AddUser from './addUser'
 
 describe(`sign up form component`, () => {
   it('renders the complete form', () => {
-    const wrapper = shallow(<AddUser />)
+    const wrapper = shallow(<AddUser />);
     expect(toJson(wrapper)).toMatchSnapshot()
   })
-})
+}) 

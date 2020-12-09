@@ -10,6 +10,4 @@ describe(`UserPage component`, () => {
     const wrapper = shallow(<UserPage match={match}/>);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
-
-  
 })

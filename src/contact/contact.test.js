@@ -8,4 +8,4 @@ describe(`contact form component`, () => {
     const wrapper = shallow(<Contact />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
-})
+}) 

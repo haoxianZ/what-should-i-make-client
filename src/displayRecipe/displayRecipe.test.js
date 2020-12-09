@@ -9,6 +9,4 @@ describe(`Display searched result component`, () => {
     const wrapper = shallow(<DisplayRecipe />)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
-
-  
 })

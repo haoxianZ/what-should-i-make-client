@@ -32,6 +32,7 @@ export default function AddUser (props){
           .then(user => {
             values.addUser(user); 
             props.history.push(`/`);
+            window.location.reload(true);
             alert('You have signed up!')
             })
           .catch(error => {

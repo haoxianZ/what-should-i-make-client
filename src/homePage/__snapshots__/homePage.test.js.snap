@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage component renders home page 1`] = `
+<div
+  className="landingPage"
+>
+  <header>
+    What Should I Make?
+  </header>
+  <nav>
+    <Link
+      style={
+        Object {
+          "textDecoration": "none",
+        }
+      }
+      to="/about"
+    >
+      About
+    </Link>
+    <Link
+      style={
+        Object {
+          "textDecoration": "none",
+        }
+      }
+      to="/contact"
+    >
+      Contact
+    </Link>
+  </nav>
+  <main>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="userbox"
+      >
+        <input
+          id="username"
+          name="username"
+          placeholder="Username"
+          required={true}
+          type="test"
+        />
+        <input
+          id="password"
+          name="password"
+          placeholder="password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <div
+        className="buttons"
+      >
+        <button
+          type="submit"
+        >
+          Log in
+        </button>
+        <Link
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+          to="/add-user"
+        >
+          <button>
+            Sign up
+          </button>
+        </Link>
+        <Link
+          style={
+            Object {
+              "textDecoration": "none",
+            }
+          }
+          to="/forgot-password"
+        >
+          <button>
+            Forgot Password
+          </button>
+        </Link>
+      </div>
+    </form>
+  </main>
+</div>
+`;
