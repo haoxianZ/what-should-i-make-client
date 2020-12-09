@@ -8,12 +8,16 @@ import NotFound from './404Page/404Page';
 import context from './context';
 import config from './config';
 import Contact from './contact/contact';
+import ForgotPassword from './forgotPassword/forgotPassword';
+import Reset from './reset';
+import NewPassword from './newPassword';
 function App() {
   const [users, setUsers] = useState([]);
   const [Login,setLogin]=useState(null);
   const [notes,setNotes]=useState([]);
   const [recipes,setRecipes]=useState([]);
-  
+  const [checkedWords,setCheckedWords]=useState(JSON.parse(localStorage.getItem('checkedWords'))||[]);
+  console.log(checkedWords)
   useEffect(()=>{
     async function fetchData(){
       const resNote = await fetch(`${config.API_ENDPOINT}/notes`);
@@ -24,6 +28,7 @@ function App() {
       setUsers(jsonUser);
     }
     fetchData()
+    
   },[])
   //   useEffect(()=>{ Promise.all([
   //     fetch(`${config.API_ENDPOINT}/notes`),
@@ -80,15 +85,17 @@ function App() {
     })
   }
   const contextValue = {
-    users: users,
-    notes: notes,
-    Login: Login,
-    recipes: recipes,
-    checkedWords:[],
+    users,
+    notes,
+    Login,
+    recipes,
+    checkedWords,
     showRecipe:showingRecipe,
     deleteNote: handleDeleteNote,
     addNote: handleAddNote,
     addUser: handleAddUser,
+    setCheckedWords,
+    setLogin
   }
 
   return (
@@ -101,7 +108,7 @@ function App() {
         component={AddUser}
       />
       <Route
-        path='/users/:userId'
+        exact path='/users/:userId'
         component={UserPage}
       />
       <Route
@@ -111,14 +118,25 @@ function App() {
        <Route
         exact path='/contact'
         component={Contact}
-      /> 
+      />
+      <Route
+        exact path='/forgot-password'
+        component={ForgotPassword}
+      />
+      <Route
+        path='/users/reset/:userId'
+        component={Reset}
+      />
       <Route 
         path='/'
         component={HomePage}
       />
       <Route component={NotFound} />
       </Switch>
-      
+      <Route
+        path='/users/reset/password/:userId'
+        component={NewPassword}
+      />
     </div>
     </context.Provider>
 

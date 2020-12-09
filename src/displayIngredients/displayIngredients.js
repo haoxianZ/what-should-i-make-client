@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import config from '../config';
 import context from '../context';
 import DisplayRecipe from '../displayRecipe/displayRecipe';
@@ -8,28 +8,29 @@ import './displayIngredients.css'
 
 export default function Display(props){
   const history = useHistory();
+
   const Context = useContext(context);
+  console.log(Context)
   function  handleChange (e) {
       const searchWord =e.target.checked ? e.target.value: null;
       const id = e.target.id
-      console.log(searchWord)
       if(searchWord){
-        Context.checkedWords.push(searchWord);
-        localStorage.setItem(id,searchWord)
-        console.log(localStorage);
+        // Context.checkedWords.push(searchWord);
+        // console.log(Context.checkedWords)
+        const newCheckedWords=[...Context.checkedWords, searchWord];
+        Context.setCheckedWords(newCheckedWords);
+        localStorage.setItem('checkedWords',JSON.stringify(newCheckedWords) );
+        console.log(localStorage)
       }
       else{
-        console.log(e.target.value)
-        let num =Context.checkedWords.indexOf(e.target);
-        if(num) Context.checkedWords.splice(num, 1);
-        localStorage.removeItem(id);
-        console.log(localStorage);
+        const newCheckedWords=Context.checkedWords.filter(word=>word!==e.target.value);
+        Context.setCheckedWords(newCheckedWords);
+        localStorage.setItem('checkedWords',JSON.stringify(newCheckedWords) );
       }
     }
     function handleClickDelete (e) {
     e.preventDefault();
     const noteId = e.target.value
-    console.log(e.target.value,noteId)
     fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
@@ -58,8 +59,12 @@ const displayEachItem=props.ingredients.map((ingredient,i)=>
                 name='ingreditents' 
                 onChange={handleChange}
                 type='checkbox' 
-                value={ingredient.content}>
+                checked={console.log(Context.checkedWords)||Context.checkedWords.includes(ingredient.content)}
+                value={ingredient.content}
+                >
+                
             </input>
+            
             <button
           className='Note_delete'
           type='button'

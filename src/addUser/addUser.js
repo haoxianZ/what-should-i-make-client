@@ -12,7 +12,12 @@ export default function AddUser (props){
          email: e.target['email'].value,
          password: e.target['password'].value
         }
-        fetch(`${config.API_ENDPOINT}/users`, {
+        const confirmPassword = e.target['confirmPassword'].value;
+        if(confirmPassword!==newUser.password){
+          alert('Passwords do not match!')
+        }
+        else{
+          fetch(`${config.API_ENDPOINT}/users`, {
           method: 'POST',
           headers: {
             'content-type': 'application/json'
@@ -25,12 +30,15 @@ export default function AddUser (props){
             return res.json()
           })
           .then(user => {
-             values.addUser(user)
-            props.history.push(`/`)
+            values.addUser(user); 
+            props.history.push(`/`);
+            alert('You have signed up!')
             })
           .catch(error => {
             console.error({ error })
           })
+        }
+        
           
       }
     return(
@@ -41,10 +49,15 @@ export default function AddUser (props){
       <form onSubmit={handleAdd} className='login'>
       <label htmlFor='username'>Username:</label>
       <input type='text' id='username' name='username' required></input>
+      <br/><br/>
       <label htmlFor='email'>Email:</label>
       <input type='email' id='email' name='email' required></input>
+      <br/><br/>
       <label htmlFor='password'>Password:</label>
       <input type='password' id='password' name='password' required></input>
+      <br/><br/>
+      <label htmlFor='confirmPassword'>Confirm Your Password:</label>
+      <input type='password' id='confirmPassword' name='confirmPassword' required></input>
       <button type='submit'>Sign up</button>
       <Link to='/' style={{ textDecoration: 'none' }}>
       <button>Cancel</button></Link>

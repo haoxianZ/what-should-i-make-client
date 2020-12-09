@@ -1,6 +1,8 @@
 import React,{useContext, useState} from 'react';
 import context from '../context';
 import config from '../config';
+import LoadMore from '../loadMore/loadMore';
+import './displayRecipe.css';
 // const recipeSearchAPIid='2a499952';
 // const recipeSearchAPIkey='c5e68ccb26db262d07a7a350a3573cc0';
 // const recipeSearchURL='https://api.edamam.com/search';
@@ -9,11 +11,12 @@ function formatQueryParams(params) {
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
 };
-function getRecipe(keyword, filter, showRecipe, maxResults=10){
+function getRecipe(keyword, filter, showRecipe, fromResult=0, maxResults=10){
     const params = {
         q: keyword,
         app_id: config.recipeSearchAPIid,
         app_key:config.recipeSearchAPIkey,
+        from: fromResult,
         to: maxResults,
         Health: filter
         // cuisineType:filter
@@ -35,8 +38,13 @@ function getRecipe(keyword, filter, showRecipe, maxResults=10){
 };
 
 export default function DisplayRecipe(props){
-    const {checkedWords, showRecipe,recipes} = useContext(context);
-  
+    const { showRecipe,recipes} = useContext(context);
+    let count = 0;
+    let fromResult=0;
+    let toResult=100;
+    let filter;
+    let keywords='';
+    const [click, setClick] = useState(0);
     const handleSearch= e=>{
         e.preventDefault();
             //use get for local storage
@@ -44,10 +52,10 @@ export default function DisplayRecipe(props){
         let checkedTerm = Object.values(localStorage);      
         console.log(checkedTerm)
         const ingredient = checkedTerm.join(',');
-        let filter = document.getElementById("filter").value;
+        filter = document.getElementById("filter").value;
         console.log(filter)
-        const keywords= ingredient;
-        getRecipe(keywords, filter, showRecipe)
+        keywords= ingredient+' '+filter;
+        getRecipe(keywords, filter, showRecipe, fromResult, toResult)
         // let elements = document.getElementsByTagName("INPUT");
         // for (let inp of elements) {
         //     if (inp.type === "checkbox")
@@ -56,10 +64,10 @@ export default function DisplayRecipe(props){
     } 
     let renderRecipes;
     if(recipes.length===0){
-      renderRecipes = <div>Sorry, there is nothing found. Try changing the filter</div>
+      renderRecipes = null
         
     }
-    else renderRecipes = recipes.map((item,index)=>(
+    else renderRecipes = recipes.slice(0,5).map((item,index)=>(
         <div key={index}>
             <h4>{item.recipe.label}</h4>
             <ul>
@@ -70,8 +78,30 @@ export default function DisplayRecipe(props){
            <a href={item.recipe.url}>Link to Full recipe</a>
         </div>
     )) 
+    const searchForMore = ()=>{
+      setClick(click+1);
+
+    };
+    let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+const  scrollFunction=()=> {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
     return ( 
-        <div>
+        <div className='recipes'>
          <form onSubmit={handleSearch}>
           <label htmlFor="filter">Choose a filter:</label>
           <select id="filter" name="filter">
@@ -86,6 +116,10 @@ export default function DisplayRecipe(props){
           <button type='submit' className='submitBtn'>Search</button>
         </form>
         {renderRecipes}
+        <LoadMore click={click}/>
+        <button onClick={searchForMore}>Load More Results</button>
+        <button onClick={topFunction} id="myBtn" title="Go to top">Top</button>
+
         </div>
     )
 }

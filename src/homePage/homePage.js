@@ -20,14 +20,18 @@ export default function HomePage(){
           }
         })
           .then(res => {
-            if (!res.ok)
+            if (!res.ok){
               return res.json().then(e => Promise.reject(e))
+            }
+              
             return res.json()
           })
           .then(user => {
-            history.push(`/users/${user.id}`)
+            Context.setLogin(user.id);
+            history.push(`/users/${user.id}`);
           })
-          .catch(error => {
+          .catch(error => { 
+            alert(error.error.message)
             console.error({ error })
           })
     }
@@ -55,7 +59,7 @@ export default function HomePage(){
                             Sign up
                         </button>
                       </Link>
-                      <Link to='/add-user' style={{ textDecoration: 'none' }}>
+                      <Link to='/forgot-password' style={{ textDecoration: 'none' }}>
                         <button>
                             Forgot Password
                         </button>

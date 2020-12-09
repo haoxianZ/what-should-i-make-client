@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+# What Should I Make?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An app that allows you to write some encouragement for others and in exchange you receive a note from others. 
 
-## Available Scripts
+## Motivation
 
-In the project directory, you can run:
+I tend to just buy what is on sale from the supermarket, so sometime I ends up with ingredients I don't really know what to do with. Now I can find new recipes for myself and try them!
 
-### `yarn start`
+## Screenshots
+Examples:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Example](./ScreenshotHomepage.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Example](./ScreenshotUserpage.png)
 
-### `yarn test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Log and update what is in your fridge
+* select combinaions of ingredients and perform recipes search
+* filter result with different filters 
 
-### `yarn build`
+## Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Live Demo](https://what-should-i-make-client.vercel.app/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Express Server!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This is the server repo for the app
 
-### `yarn eject`
+## Installing
+Install the dependencies and devDependencies and start the server.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+npm install
+```
+## API endpoint
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Link](https://tranquil-citadel-21990.herokuapp.com)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Schema
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### User
 
-## Learn More
+```js
+{"id":"2000effb-903f-4a57-9c02-b91ba825b509","username":"testa","email":"test1@test.com","serialid":1}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Note
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+{"id":3,"content":"you got this!","liked":2,"user_id":1}
+```
+## API Overview
 
-### Code Splitting
+```text
+/
+.
+├── /users
+│   └── GET
+│   └── GET /:id
+│   └── POST
+│ 
+├── /notes
+│   └── GET
+│   └── GET /:id    
+│   └── Post
+│   └── Patch /:id
+│   └── Delete /:id
+│    
+```
+### GET `/users/:id` or `/notes/:id`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```js
+// req.params
+{
+  id: ID
+}
+```
+### POST `/users`
 
-### Analyzing the Bundle Size
+```js
+// req.body
+{
+  email: String,
+  username: String
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+// res.body
+{
+  id: uuid,
+  email: String,
+  username: String,
+  serialid: integer
+}
+```
+### POST `/notes`
 
-### Making a Progressive Web App
+```js
+// req.body
+{
+  content: String,
+  user_id: Integer,
+  Liked: Integer
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+// res.body
+{
+  id: uuid,
+  content: String,
+  user_id: Integer,
+  Liked: Integer
+}
+```
+## Built With
 
-### Advanced Configuration
+* HTML
+* CSS
+* Postgres
+* Express
+* React
+* Node
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Author
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* **Haoxian Zhang** 

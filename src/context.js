@@ -9,7 +9,8 @@ const context= React.createContext({
   addUser: () => {},
   addNote: ()=>{},
   deleteNote: ()=>{},
-  showRecipe:()=>{}
+  showRecipe:()=>{},
+  setLogin:()=>{}
 })
 export const contextProvider = context.Provider;
 export default context;

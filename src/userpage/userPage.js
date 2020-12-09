@@ -10,14 +10,12 @@ import './userPage.css'
 export default function UserPage(props){
     const history = useHistory();
    
-    let renderContent;
     const Context = useContext(context);
-    const {notes=[],users=[]}=Context;
+    const {notes,users}=Context;
+    if (!users.length){return null};
     const  user_id  = props.match.params.userId;
     const user = users.find(user=>user.id === user_id)
-    const userNotes = notes.filter(note=>note.user_id === user.serialid)
-    renderContent=<Display ingredients = {userNotes}
-    user_id={user_id}/>
+    const userNotes = notes.filter(note=>note.user_id === user.serialid);
  
     const handleSubmit=e=> {
         e.preventDefault()
@@ -46,11 +44,10 @@ export default function UserPage(props){
             console.error({ error })
           })
       }
-    return (
-        <section className='userPage'>
-            <Link to='/' style={{ textDecoration: 'none' }}>
-                <header>What Should I Make?</header>
-            </Link>
+      let renderPage;
+      if(Context.Login===user_id){
+        renderPage=<section className='userPage'>
+            
             
             <form onSubmit={handleSubmit} className='addToFridge'>
             <label htmlFor='newNote'>Add ingredient to the fridge:  </label>
@@ -63,13 +60,21 @@ export default function UserPage(props){
 
             </nav> 
         </form>
-            <div> 
-              {renderContent}
-                
-            </div>
+
            
         
         </section>
+      }
+      else renderPage=<h4>You have not Log in yet</h4>
+    return (
+            <div>
+              <Link to='/' style={{ textDecoration: 'none' }}>
+                <header>What Should I Make?</header>
+              </Link>{renderPage}
+              {Context.Login===user_id?<Display ingredients = {userNotes}
+                user_id={user_id}/>:null}
+                
+            </div>
     )
 }
 UserPage.propTypes={
