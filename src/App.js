@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Route, Switch} from 'react-router-dom';
 import HomePage from'./homePage/homePage';
 import AddUser from './addUser/addUser';
@@ -18,7 +18,6 @@ function App() {
   const [notes,setNotes]=useState([]);
   const [recipes,setRecipes]=useState([]);
   const [checkedWords,setCheckedWords]=useState(JSON.parse(localStorage.getItem('checkedWords'))||[]);
-  console.log(checkedWords)
   useEffect(()=>{
     async function fetchData(){
       const resNote = await fetch(`${config.API_ENDPOINT}/notes`);
@@ -31,54 +30,21 @@ function App() {
     fetchData()
     
   },[])
-  //   useEffect(()=>{ Promise.all([
-  //     fetch(`${config.API_ENDPOINT}/notes`),
-  //     fetch(`${config.API_ENDPOINT}/users`)
-  //   ])
-  //     .then(([notesRes, usersRes]) => {
-  //       if (!notesRes.ok)
-  //         return notesRes.json().then(e => Promise.reject(e))
-  //       if (!usersRes.ok)
-  //         return usersRes.json().then(e => Promise.reject(e))
-
-  //       return Promise.all([
-  //         notesRes.json(),
-  //         usersRes.json(),
-  //       ])
-  //     })
-  //     .then(([notes, users]) => {
-  //       console.log(notes,users)
-  //       setNotes(notes);
-  //       setUsers(users);
-  //     })
-  //     .catch(error => {
-  //       console.error({ error })
-  //     })
-  // },[])
   
-  const Context = useContext(context);
   const handleDeleteNote= (noteId) =>{
     noteId = parseInt(noteId);
     const newNotes = notes.filter(note => note.id !== noteId);
-    // const removedNote=notes.find(note=>note.id===noteId);
-    // const newCheckedWords=Context.checkedWords.filter(word=>word!==removedNote);
-    // console.log(newNotes, noteId, notes[0].id);
-    // Context.setCheckedWords(newCheckedWords);
-    // localStorage.setItem('checkedWords',JSON.stringify(newCheckedWords) )
     setNotes(newNotes)
   }
    const handleAddNote=(ingredient)=>{
    
-     console.log('before running add note')
     setNotes([
       ...notes,
       ingredient
     ])
-    console.log('addnote is ran',notes)
   }
   const showingRecipe = (result)=>{
     setRecipes(result)
-    console.log(recipes,'recipe search')
 
   }
   const handleAddUser = (user) => {

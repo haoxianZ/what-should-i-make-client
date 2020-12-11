@@ -49,7 +49,7 @@ export default function HomePage(){
                 <div className='userbox'>
                       <input placeholder='Username' type='test' id='username' name='username' required>
                       </input>
-                      <input placeholder='password' type='password' id='password' name='password' required></input>
+                      <input autoComplete="on" placeholder='password' type='password' id='password' name='password' required></input>
                     </div>
                     <div className='buttons'>
                       <button type='submit'>

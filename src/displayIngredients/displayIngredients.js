@@ -14,12 +14,9 @@ export default function Display(props){
       const searchWord =e.target.checked ? e.target.value: null;
       const id = e.target.id
       if(searchWord){
-        // Context.checkedWords.push(searchWord);
-        // console.log(Context.checkedWords)
         const newCheckedWords=[...Context.checkedWords, searchWord];
         Context.setCheckedWords(newCheckedWords);
         localStorage.setItem('checkedWords',JSON.stringify(newCheckedWords) );
-        console.log(localStorage)
       }
       else{
         const newCheckedWords=Context.checkedWords.filter(word=>word!==e.target.value);
@@ -60,7 +57,7 @@ const displayEachItem=props.ingredients.map((ingredient,i)=>
                 name='ingreditents' 
                 onChange={handleChange}
                 type='checkbox' 
-                checked={console.log(Context.checkedWords)||Context.checkedWords.includes(ingredient.content)}
+                checked={Context.checkedWords.includes(ingredient.content)}
                 value={ingredient.content}
                 >
                 

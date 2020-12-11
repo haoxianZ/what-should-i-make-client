@@ -55,10 +55,10 @@ export default function AddUser (props){
       <input type='email' id='email' name='email' required></input>
       <br/><br/>
       <label htmlFor='password'>Password:</label>
-      <input type='password' id='password' name='password' required></input>
+      <input type='password' id='password' name='password' autoComplete='on' required></input>
       <br/><br/>
       <label htmlFor='confirmPassword'>Confirm Your Password:</label>
-      <input type='password' id='confirmPassword' name='confirmPassword' required></input>
+      <input type='password' id='confirmPassword' name='confirmPassword' autoComplete='on' required></input>
       <button type='submit'>Sign up</button>
       <Link to='/home-page' style={{ textDecoration: 'none' }}>
       <button>Cancel</button></Link>

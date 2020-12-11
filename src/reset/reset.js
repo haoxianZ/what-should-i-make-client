@@ -1,7 +1,6 @@
 import React from 'react';
 import config from '../config';
 import {useHistory} from 'react-router-dom';
-import {Link} from 'react-router-dom';
 export default function Reset(props){
     const history = useHistory();
     const  user_id  = props.match.params.userId;

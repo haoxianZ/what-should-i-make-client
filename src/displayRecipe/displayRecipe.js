@@ -23,7 +23,6 @@ function getRecipe(keyword, filter, showRecipe, fromResult=0, maxResults=10){
       };
       const queryString = formatQueryParams(params)
       const url = config.recipeSearchURL + '?' + queryString;
-      console.log(url)
       return fetch(url)
     .then(response => {
       if (response.ok) {
@@ -50,10 +49,8 @@ export default function DisplayRecipe(props){
             //use get for local storage
 
         let checkedTerm = Object.values(localStorage);      
-        console.log(checkedTerm)
         const ingredient = checkedTerm.join(',');
         filter = document.getElementById("filter").value;
-        console.log(filter)
         keywords= ingredient+' '+filter;
         getRecipe(keywords, filter, showRecipe, fromResult, toResult)
         // let elements = document.getElementsByTagName("INPUT");

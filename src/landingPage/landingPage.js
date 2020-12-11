@@ -1,12 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-import context from '../context';
-import {useHistory} from 'react-router-dom';
 import './landingPage.css';
 export default function LandingPage(){
-  const history = useHistory()
-    const Context = useContext(context)
-    
     return(
         <div className='landingPage'>
 

@@ -1,11 +1,7 @@
-import React,{useContext, useState} from 'react';
+import React,{useContext} from 'react';
 import context from '../context';
-import config from '../config';
-
 export default function LoadMore(props){
     const {recipes} = useContext(context);
- 
-   
     const renderMore=recipes.slice(5,props.click*5+5).map((item,index)=>(
             <div key={index}>
                 <h4>{item.recipe.label}</h4>
@@ -17,12 +13,8 @@ export default function LoadMore(props){
                <a href={item.recipe.url}>Link to Full recipe</a>
             </div>
         ))
-    console.log('click is working')
-
-    
     return(
-        <section className="loadMore">
-            
+        <section className="loadMore">   
             {renderMore}
         </section>
     )
