@@ -68,7 +68,7 @@ export default function UserPage(props){
       else renderPage=<h4>You have not Log in yet</h4>
     return (
             <div>
-              <Link to='/' style={{ textDecoration: 'none' }}>
+              <Link to='/home-page' style={{ textDecoration: 'none' }}>
                 <header>What Should I Make?</header>
               </Link>{renderPage}
               {Context.Login===user_id?<Display ingredients = {userNotes}

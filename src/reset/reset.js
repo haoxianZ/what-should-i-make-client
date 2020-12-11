@@ -1,5 +1,5 @@
 import React from 'react';
-import config from './config';
+import config from '../config';
 import {useHistory} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 export default function Reset(props){

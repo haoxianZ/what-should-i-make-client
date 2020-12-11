@@ -41,7 +41,9 @@ export default function Display(props){
           return res.json().then(e => Promise.reject(e))
       })
       .then(() => {
-        Context.deleteNote(noteId)
+        Context.deleteNote(noteId);
+        Context.setCheckedWords([]);
+        localStorage.removeItem('checkedWords');
         history.push(`/users/${props.user_id}`)
       })
       .catch(error => {
@@ -51,7 +53,7 @@ export default function Display(props){
   }
  
 const displayEachItem=props.ingredients.map((ingredient,i)=>
-        <section key={i}>
+        <li key={i}>
 
             <label className='ingredient' htmlFor={i}>{ingredient.content}</label>
             <input id={i} 
@@ -73,12 +75,15 @@ const displayEachItem=props.ingredients.map((ingredient,i)=>
           Remove
         </button>
         <br/>
-        </section>
+        </li>
         )
         
     return(
       <div>
-        {displayEachItem}
+        <ul>
+          {displayEachItem}
+        </ul>
+        <p>If no result showing up, Please try selecting less than 3 ingredients</p>
         <DisplayRecipe />
       </div>
         

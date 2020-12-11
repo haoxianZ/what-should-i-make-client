@@ -37,7 +37,7 @@ export default function ForgotPassword(){
     }
     return(
         <div>
-            <Link to='/' style={{ textDecoration: 'none' }}>
+            <Link to='/home-page' style={{ textDecoration: 'none' }}>
                 <header>What Should I Make?</header>
             </Link>
             <form onSubmit={sendEmail} className='forgotPassword'>

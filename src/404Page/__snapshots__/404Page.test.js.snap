@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`404 Page component renders the complete form 1`] = `
+<div
+  className="notPage"
+>
+  <Link
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+    to="/home-page"
+  >
+    <header>
+      What Should I Make?
+    </header>
+  </Link>
+  <h3
+    className="sthWrong"
+  >
+    Oooops! Something went wrong.
+    <br />
+  </h3>
+</div>
+`;

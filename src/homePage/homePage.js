@@ -12,12 +12,14 @@ export default function HomePage(){
         const user = {
           username: e.target['username'].value,
           password: e.target['password'].value
-        }
-        fetch(`${config.API_ENDPOINT}/users?username=${user.username}&password=${user.password}`, {
-          method: 'GET',
+        };
+        
+        fetch(`${config.API_ENDPOINT}/users`, {
+          method: 'PUT',
           headers: {
             'content-type': 'application/json'
-          }
+          },
+          body: JSON.stringify(user)
         })
           .then(res => {
             if (!res.ok){
@@ -38,12 +40,11 @@ export default function HomePage(){
     return(
         <div className='landingPage'>
             <header>What Should I Make?</header>
-            <nav>
+            <nav> 
               <Link style={{ textDecoration: 'none' }} to='/about' >About</Link>
               <Link style={{ textDecoration: 'none' }} to='/contact' >Contact</Link>
             </nav>
-            <main>
-              
+            <main>   
                 <form onSubmit={handleSubmit}>
                 <div className='userbox'>
                       <input placeholder='Username' type='test' id='username' name='username' required>

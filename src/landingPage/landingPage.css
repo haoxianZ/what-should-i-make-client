@@ -1,0 +1,44 @@
+.landingPage{
+    text-align: center;
+}
+.intro{
+    color:whitesmoke ;
+}
+.start{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    font-size: larger;
+    color:whitesmoke;
+      background: #58A4B0;
+      border: none;
+      box-shadow: inset 0 1px 0 #73DCE7;
+  }
+  button:hover{
+    border: 1px #2F5BB7 solid;
+      box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #4d96a1;
+      background: #3B747D;
+  }
+  button:active {
+    box-shadow: inset 0 2px 5px #3B747D;   
+  }
+  .video-background {
+    background: #000;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -99;
+  }
+  .video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#vidtop-content {
+	top: 0;
+	color: #fff;
+}

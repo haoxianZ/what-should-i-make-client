@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About component renders without crash 1`] = `
+<section
+  className="reset"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="resetCode"
+    >
+      Reset Code:
+    </label>
+    <input
+      id="resetCode"
+      name="resetCode"
+      required={true}
+      type="text"
+    />
+    <button
+      className="restBtn"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</section>
+`;

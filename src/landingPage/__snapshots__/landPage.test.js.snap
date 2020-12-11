@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`landing page component renders without crash 1`] = `
+<div
+  className="landingPage"
+>
+  <Link
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+    to="/home-page"
+  >
+    <header>
+      What Should I Make?
+    </header>
+  </Link>
+  <nav>
+    <Link
+      style={
+        Object {
+          "textDecoration": "none",
+        }
+      }
+      to="/about"
+    >
+      About
+    </Link>
+    <Link
+      style={
+        Object {
+          "textDecoration": "none",
+        }
+      }
+      to="/contact"
+    >
+      Contact
+    </Link>
+  </nav>
+  <main
+    className="intro"
+  >
+    <h1>
+      Welcome!
+    </h1>
+    <h3>
+      What is this?
+    </h3>
+    <h4>
+      This is an app to help you to decide what to cook base on what is in your fridge.
+    </h4>
+    <h3>
+      How do I use this App?
+    </h3>
+    <h4>
+      Create an account and log in what you have in the Fridge. Then explore what you can cook with them!
+    </h4>
+    <Link
+      style={
+        Object {
+          "textDecoration": "none",
+        }
+      }
+      to="/home-page"
+    >
+      <button
+        className="start"
+      >
+        Let's get started
+      </button>
+    </Link>
+  </main>
+</div>
+`;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Load More component renders without crash 1`] = `
+<section
+  className="loadMore"
+/>
+`;

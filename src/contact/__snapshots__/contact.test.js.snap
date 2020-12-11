@@ -8,7 +8,7 @@ exports[`contact form component renders the complete form 1`] = `
         "textDecoration": "none",
       }
     }
-    to="/"
+    to="/home-page"
   >
     <header>
       What Should I Make?
@@ -18,43 +18,47 @@ exports[`contact form component renders the complete form 1`] = `
     className="contactForm"
     onSubmit={[Function]}
   >
-    <label
-      htmlFor="subject"
-    >
-      Subject: 
-    </label>
-    <br />
+    <h3>
+      <label
+        htmlFor="subject"
+      >
+        Subject: 
+      </label>
+    </h3>
     <input
       name="subject"
     />
     <br />
-    <label
-      htmlFor="message"
-    >
-      Message: 
-    </label>
-    <br />
+    <h3>
+      <label
+        htmlFor="message"
+      >
+        Message: 
+      </label>
+    </h3>
     <textarea
       cols="70"
       name="message"
       required={true}
       rows="10"
     />
-    <br />
-    <label
-      htmlFor="from_name"
-    >
-      Your Email: 
-    </label>
-    <br />
+    <h3>
+      <label
+        htmlFor="from_name"
+      >
+        Your Email:
+      </label>
+    </h3>
     <input
       name="from_name"
       type="email"
     />
-    <input
+    <br />
+    <button
       type="submit"
-      value="Send"
-    />
+    >
+      Send
+    </button>
   </form>
 </div>
 `;

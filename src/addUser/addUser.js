@@ -45,7 +45,7 @@ export default function AddUser (props){
     return(
       <div>
        
-      <Link to='/' style={{ textDecoration: 'none' }}><header>What Should I Make?</header></Link>
+      <Link to='/home-page' style={{ textDecoration: 'none' }}><header>What Should I Make?</header></Link>
       
       <form onSubmit={handleAdd} className='login'>
       <label htmlFor='username'>Username:</label>
@@ -60,7 +60,7 @@ export default function AddUser (props){
       <label htmlFor='confirmPassword'>Confirm Your Password:</label>
       <input type='password' id='confirmPassword' name='confirmPassword' required></input>
       <button type='submit'>Sign up</button>
-      <Link to='/' style={{ textDecoration: 'none' }}>
+      <Link to='/home-page' style={{ textDecoration: 'none' }}>
       <button>Cancel</button></Link>
 
       </form>

@@ -3,11 +3,12 @@ import {Link} from 'react-router-dom';
 import './about.css'
 export default function About(){
     return(
-        <div className='about'>
-            <Link to='/' style={{ textDecoration: 'none' }}>
+        <div >
+            <Link to='/home-page' style={{ textDecoration: 'none' }}>
                 <header>What Should I Make?</header>
             </Link>
-            <h2>
+            <div className='about'>
+               <h2>
             Welcome! 
             </h2>
             <h3>
@@ -22,7 +23,9 @@ export default function About(){
             <h4>
                 Create an account and log in what you have in the Fridge. 
             Then explore what you can cook with them!
-            </h4>
+            </h4> 
+            </div>
+            
             
         </div>
     )

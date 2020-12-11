@@ -70,6 +70,7 @@ export default function DisplayRecipe(props){
     else renderRecipes = recipes.slice(0,5).map((item,index)=>(
         <div key={index}>
             <h4>{item.recipe.label}</h4>
+            <img src={item.recipe.image}/>
             <ul>
                  {item.recipe.ingredients.map((ingre,i)=>(
                 <li key={i}>{ingre.text}</li>

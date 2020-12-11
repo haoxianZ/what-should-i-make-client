@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle, useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import {Route, Switch} from 'react-router-dom';
 import HomePage from'./homePage/homePage';
 import AddUser from './addUser/addUser';
@@ -9,8 +9,9 @@ import context from './context';
 import config from './config';
 import Contact from './contact/contact';
 import ForgotPassword from './forgotPassword/forgotPassword';
-import Reset from './reset';
-import NewPassword from './newPassword';
+import Reset from './reset/reset';
+import NewPassword from './newPassword/newPassword';
+import LandingPage from './landingPage/landingPage';
 function App() {
   const [users, setUsers] = useState([]);
   const [Login,setLogin]=useState(null);
@@ -55,11 +56,15 @@ function App() {
   //     })
   // },[])
   
-
+  const Context = useContext(context);
   const handleDeleteNote= (noteId) =>{
     noteId = parseInt(noteId);
     const newNotes = notes.filter(note => note.id !== noteId);
-    console.log(newNotes, noteId, notes[0].id)
+    // const removedNote=notes.find(note=>note.id===noteId);
+    // const newCheckedWords=Context.checkedWords.filter(word=>word!==removedNote);
+    // console.log(newNotes, noteId, notes[0].id);
+    // Context.setCheckedWords(newCheckedWords);
+    // localStorage.setItem('checkedWords',JSON.stringify(newCheckedWords) )
     setNotes(newNotes)
   }
    const handleAddNote=(ingredient)=>{
@@ -128,9 +133,15 @@ function App() {
         component={Reset}
       />
       <Route 
-        path='/'
+        exact path='/home-page'
         component={HomePage}
       />
+      <Route 
+        exact path='/'
+        component={LandingPage}
+      />
+     
+      
       <Route component={NotFound} />
       </Switch>
       <Route
