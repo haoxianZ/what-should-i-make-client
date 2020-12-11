@@ -9,9 +9,9 @@ I tend to just buy what is on sale from the supermarket, so sometime I ends up w
 ## Screenshots
 Examples:
 
-![Example](./ScreenshotHomepage.png)
+![Example](.\ScreenshotHomepage.png)
 
-![Example](./ScreenshotUserpage.png)
+![Example](.\ScreenshotUserpage.png)
 
 ## Features
 
