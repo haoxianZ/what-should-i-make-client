@@ -56,7 +56,7 @@ export default function UserPage(props){
         </form>
         </section>
       }
-      else renderPage=<h4>You have not Log in yet</h4>
+      else renderPage=<h2 className='notLogin'>You have not Log in yet</h2>
     return (
             <div>
               <Link to='/home-page' style={{ textDecoration: 'none' }}>

@@ -12,6 +12,9 @@ textarea{
     font-size: large;
     display: inline;
 }
+.notLogin{
+    text-align: center;
+}
 @media only screen and (min-width: 600px) {
 
 
