@@ -9,9 +9,9 @@ I tend to just buy what is on sale from the supermarket, so sometime I ends up w
 ## Screenshots
 Examples:
 
-![Example](.\ScreenshotHomepage.png)
+![Example](./ScreenshotHomePage.png)
 
-![Example](.\ScreenshotUserpage.png)
+![Example](./ScreenshotUserPage.png)
 
 ## Features
 
@@ -22,6 +22,7 @@ Examples:
 ## Demo
 
 - [Live Demo](https://what-should-i-make-client.vercel.app/)
+
 
 
 ## Built With
