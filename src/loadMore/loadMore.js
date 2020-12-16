@@ -1,10 +1,12 @@
 import React,{useContext} from 'react';
 import context from '../context';
+import './loadMore.css';
 export default function LoadMore(props){
     const {recipes} = useContext(context);
-    const renderMore=recipes.slice(5,props.click*5+5).map((item,index)=>(
-            <div key={index}>
+    const renderMore=recipes.slice(6,props.click*6+6).map((item,index)=>(
+            <div key={index} className='subContainer'>
                 <h4>{item.recipe.label}</h4>
+                <img src={item.recipe.image}/>
                 <ul>
                      {item.recipe.ingredients.map((ingre,i)=>(
                     <li key={i}>{ingre.text}</li>
@@ -14,7 +16,7 @@ export default function LoadMore(props){
             </div>
         ))
     return(
-        <section className="loadMore">   
+        <section className="container">   
             {renderMore}
         </section>
     )

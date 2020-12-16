@@ -64,10 +64,11 @@ export default function DisplayRecipe(props){
       renderRecipes = null
         
     }
-    else renderRecipes = recipes.slice(0,5).map((item,index)=>(
-        <div key={index}>
-            <h4>{item.recipe.label}</h4>
-            <img src={item.recipe.image}/>
+    else renderRecipes = recipes.slice(0,6).map((item,index)=>(
+        <div key={index} className='subContainer'>
+            <h3>{item.recipe.label}</h3>
+            <img src={item.recipe.image}
+            onError={(e)=>{e.target.src='/404.jpg'}}/>
             <ul>
                  {item.recipe.ingredients.map((ingre,i)=>(
                 <li key={i}>{ingre.text}</li>
@@ -113,8 +114,10 @@ function topFunction() {
           </select>
           <button type='submit' className='submitBtn'>Search</button>
         </form>
-        {renderRecipes}
-        <LoadMore click={click}/>
+        <div className='container'>{renderRecipes}</div>
+        
+        
+        <LoadMore click={click}/><br/>
         <button onClick={searchForMore}>Load More Results</button>
         <button onClick={topFunction} id="myBtn" title="Go to top">Top</button>
 

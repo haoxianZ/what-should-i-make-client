@@ -4,7 +4,13 @@ import './landingPage.css';
 export default function LandingPage(){
     return(
         <div className='landingPage'>
-
+            <div className='video'>
+                {/* <div style={{backgroundColor:'red', width:'100%', height:'100%'}}></div> */}
+                <video id="background_video" className='background_video' autoPlay loop muted >
+                <source src='video.mp4' type='video/mp4' />
+            </video>
+            </div>
+            
            <Link to='/home-page' style={{ textDecoration: 'none' }}>
                 <header>What Should I Make?</header>
             </Link>
@@ -23,6 +29,7 @@ export default function LandingPage(){
               <h4>
                   This is an app to help you to decide what to cook base on what is in your fridge. 
               </h4>
+              <br/><br/><br/>
               <h3>
                   How do I use this App?
               </h3>

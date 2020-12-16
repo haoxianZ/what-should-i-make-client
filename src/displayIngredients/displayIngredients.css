@@ -4,9 +4,8 @@ label{
 .ingredient{
     padding-right: 20px;
 }
-ul{
+table{
     margin:auto;
-    display: inline;
     justify-content: space-between;
     text-align: center;
     padding-top: 10px;
@@ -19,12 +18,13 @@ ul{
 input[type='checkbox'] {
     width:20px;
     height:20px;
-    background:white;
+    background:#DDF2EB;
     border: radius 10px;
     border:2px solid #555;
 }
 p{
     text-align: center;
+    font-weight: bold;
 }
 input[type='checkbox']:checked {
     background: #abd;

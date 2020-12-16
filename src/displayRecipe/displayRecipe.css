@@ -6,8 +6,8 @@
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
-    background-color: red; /* Set a background color */
-    color: white; /* Text color */
+    background-color: #58A4B0; /* Set a background color */
+    color: #DDF2EB; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
     padding: 15px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
@@ -19,5 +19,37 @@
   }
 .recipes{
     text-align: center;
-    color: whitesmoke;
+    color: #DDF2EB;
+}
+ul{
+  font-weight: bold;
+}
+img{
+  margin:auto;
+  display: flex;
+  text-align: center;
+}
+.container{
+  margin: 0 auto;
+  max-width: fit-content;
+  display: grid
+}
+.subContainer{
+  max-width: 300px;
+  min-width: 300px;
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+
+}
+@media only screen and (min-width: 600px) {
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .subContainer{
+    flex-wrap: wrap;
+    max-width: 500px;
+    min-width: 500px;
+  }
 }

@@ -11,12 +11,10 @@ export default function Contact(){
     
         emailjs.sendForm('service_8mq29g9', 'template_u2qcn7p', e.target, 'user_Qof97B4UQhYhPaiNqMWOx')
           .then((result) => {
-              console.log(result.text);
               alert('Thank you for contacting us');
               history.push('/home-page');
 
           }, (error) => {
-              console.log(error.text);
           });
       }
     return(

@@ -50,10 +50,9 @@ export default function Display(props){
   }
  
 const displayEachItem=props.ingredients.map((ingredient,i)=>
-        <li key={i}>
-
-            <label className='ingredient' htmlFor={i}>{ingredient.content}</label>
-            <input id={i} 
+        <tr key={i}>
+            <th><label className='ingredient' htmlFor={i}>{ingredient.content}</label></th>
+            <th><input id={i} 
                 name='ingreditents' 
                 onChange={handleChange}
                 type='checkbox' 
@@ -61,25 +60,26 @@ const displayEachItem=props.ingredients.map((ingredient,i)=>
                 value={ingredient.content}
                 >
                 
-            </input>
+            </input></th>
             
-            <button
+            <th><button
           className='Note_delete'
           type='button'
           onClick={handleClickDelete}
           value={ingredient.id}
         >
           Remove
-        </button>
-        <br/>
-        </li>
+        </button></th>
+            
+        </tr>
         )
         
     return(
       <div>
-        <ul>
-          {displayEachItem}
-        </ul>
+        <table>
+          <tbody>{displayEachItem}</tbody>
+          
+        </table>
         <p>If no result showing up, Please try selecting less than 3 ingredients</p>
         <DisplayRecipe />
       </div>
