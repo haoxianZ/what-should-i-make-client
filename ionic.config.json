@@ -1,0 +1,7 @@
+{
+    "name": "whatShouldIMake",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "react"
+  }

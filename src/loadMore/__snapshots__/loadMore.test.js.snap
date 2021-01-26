@@ -2,6 +2,6 @@
 
 exports[`Load More component renders without crash 1`] = `
 <section
-  className="loadMore"
+  className="container"
 />
 `;

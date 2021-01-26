@@ -59,9 +59,13 @@ exports[`Display searched result component renders search recipe results 1`] = `
       Search
     </button>
   </form>
+  <div
+    className="container"
+  />
   <LoadMore
     click={0}
   />
+  <br />
   <button
     onClick={[Function]}
   >
