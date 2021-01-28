@@ -7,7 +7,7 @@ export default function LandingPage(){
             <div className='video'>
                 {/* <div style={{backgroundColor:'red', width:'100%', height:'100%'}}></div> */}
                 <video id="background_video" className='background_video' autoPlay loop muted >
-                <source src={'video.mp4'||'video(1).mp4'}type='video/mp4' />
+                <source src='video.mp4'type='video/mp4' />
             </video>
             </div>
             
