@@ -4,12 +4,12 @@ import './landingPage.css';
 export default function LandingPage(){
     return(
         <div className='landingPage'>
-            <div className='video'>
+            {/* <div className='video'> */}
                 {/* <div style={{backgroundColor:'red', width:'100%', height:'100%'}}></div> */}
-                <video id="background_video" className='background_video' autoPlay loop muted >
+                {/* <video id="background_video" className='background_video' autoPlay loop muted >
                 <source src='video.mp4'type='video/mp4' />
             </video>
-            </div>
+            </div> */}
             
            <Link to='/home-page' style={{ textDecoration: 'none' }}>
                 <header>What Should I Make?</header>
