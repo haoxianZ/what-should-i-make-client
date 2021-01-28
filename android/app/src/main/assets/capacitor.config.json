@@ -1,0 +1,8 @@
+{
+    "appId": "io.ionic.whatShouldIMake",
+    "appName": "whatShouldIMake",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "cordova": {}
+  }
